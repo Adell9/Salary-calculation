@@ -1,23 +1,24 @@
-
-hours = input("Enter the number of working hours: ")
-rate = input("What is the rate of effort?:  ")
-
-
-try:
-    hours = float(hours)
-    rate = float(rate)
-except ValueError:
-    print("ERROR: Just enter the numeric inputs.")
-    quit()
+while True:
+   try:
+        hours = float(input("Enter hours: "))
+        Rate = float(input("Enter rate: "))
+        break
+   except ValueError:
+       print("ONLY NUMBERS!")
 
 
-if hours > 40:
-    regular_pay = 40 * rate
-    overtime_hours = hours - 40
-    overtime_pay = overtime_hours * (rate * 1.5)
-    total_pay = regular_pay + overtime_pay
 
-else:
-    total_pay = hours * rate
+def computepay(hours, Rate):
 
-print("The total salary is: ",total_pay)
+    if hours > 40:
+        overtime_pay = hours - 40
+        total_pay = (40*Rate) + overtime_pay * (Rate * 1.5)
+    else:
+        total_pay = hours * Rate
+
+    return total_pay
+
+
+print("Pay ",computepay(hours,Rate))
+
+
